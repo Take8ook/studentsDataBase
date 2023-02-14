@@ -9,9 +9,8 @@ uses
     {$IFDEF HASAMIGA}
     athreads,
     {$ENDIF}
-    Interfaces, // this includes the LCL widgetset
-    Forms, main, add, edit
-    { you can add units after this };
+    Interfaces,
+    Forms, main, add, edit;
 
 {$R *.res}
 

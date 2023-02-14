@@ -9,9 +9,8 @@ uses
     {$IFDEF HASAMIGA}
     athreads,
     {$ENDIF}
-    Interfaces, // this includes the LCL widgetset
+    Interfaces,
     Forms, main, add, edit
-    { you can add units after this };
 
 {$R *.res}
 
@@ -23,5 +22,6 @@ begin
     Application.CreateForm(TFormAdd, FormAdd);
     Application.CreateForm(TFormEdit, FormEdit);
     Application.Run;
+
 end.
 

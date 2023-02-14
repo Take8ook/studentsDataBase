@@ -38,6 +38,7 @@
         <Filename Value="main.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormMain"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
       </Unit>
@@ -45,6 +46,7 @@
         <Filename Value="add.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormAdd"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Add"/>
       </Unit>
@@ -52,6 +54,7 @@
         <Filename Value="edit.pas"/>
         <IsPartOfProject Value="True"/>
         <ComponentName Value="FormEdit"/>
+        <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Edit"/>
       </Unit>
