@@ -1,7 +1,7 @@
 object FormEdit: TFormEdit
-  Left = 1137
+  Left = 1525
   Height = 120
-  Top = 756
+  Top = 501
   Width = 320
   BorderStyle = bsToolWindow
   Caption = 'Изменение данных'

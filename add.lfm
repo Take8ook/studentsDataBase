@@ -1,7 +1,7 @@
 object FormAdd: TFormAdd
-  Left = 784
+  Left = 1526
   Height = 120
-  Top = 785
+  Top = 669
   Width = 320
   BorderStyle = bsToolWindow
   Caption = 'Добавление студента'

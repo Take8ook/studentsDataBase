@@ -44,7 +44,7 @@ begin
         FormMain.ListBoxStudents.Items.Add(FormAdd.EnterNewStudent.Text);
         Showmessage(FormAdd.EnterNewStudent.Text + ' успешно добавлен(-а)!');
         FormAdd.EnterNewStudent.Text := '';
-        FormAdd.Hide;
+        FormAdd.Close;
         FormMain.Show;
     end
     else

@@ -40,14 +40,15 @@ begin
         FormMain.ListBoxStudents.Items[FormMain.ListBoxStudents.ItemIndex] := FormEdit.EditStudent.Text;
         Showmessage(editingStudent + ' успешно изменен(-а) на ' + FormEdit.EditStudent.Text + '!');
         FormEdit.EditStudent.Text := '';
-        FormEdit.Hide;
+        FormEdit.Close;
         FormMain.Show;
     end
     else
     begin
         if FormMain.ListBoxStudents.ItemIndex = -1 then
         begin
-            FormEdit.Hide;
+            FormEdit.Close;
+            //FormEdit.EditStudent.Text := '';
             Showmessage('Не выбрано изменяемое поле!');
         end
         else

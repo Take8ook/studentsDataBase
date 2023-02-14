@@ -47,7 +47,8 @@ begin
     begin
         if FormMain.ListBoxStudents.ItemIndex = -1 then
         begin
-            FormEdit.Hide;
+            FormEdit.Close;
+            FormEdit.EditStudent.Text := '';
             Showmessage('Не выбрано изменяемое поле!');
         end
         else
