@@ -12,7 +12,6 @@ type
     { TFormMain }
 
     TFormMain = class(TForm)
-        Button1: TButton;
         ButtonLoad: TButton;
         ButtonSave: TButton;
         ButtonEdit: TButton;
@@ -20,13 +19,13 @@ type
         ButtonAdd: TButton;
         LabelTitle: TLabel;
         ListBoxStudents: TListBox;
-        procedure Button1Click(Sender: TObject);
         procedure ButtonAddClick(Sender: TObject);
         procedure ButtonEditClick(Sender: TObject);
         procedure ButtonLoadClick(Sender: TObject);
         procedure ButtonRemoveClick(Sender: TObject);
         procedure ButtonSaveClick(Sender: TObject);
-        procedure FormCreate(Sender: TObject);
+        procedure FormCreate(Sender: TObject);      
+        procedure FormDestroy(Sender: TObject);
         procedure FillListBox(lBox: TListBox; objList: TObjectList);
     private
 
@@ -49,18 +48,6 @@ begin
     Add.FormAdd.ShowModal;
 end;
 
-procedure TFormMain.Button1Click(Sender: TObject);
-var
-    pList: TPersonList;
-    somePerson: TPerson;
-    i: integer;
-begin
-    somePerson := TPerson.Create('fname');
-    pList := TPersonList.Create();
-    i := pList.Add(somePerson);
-    ShowMessage(i.ToString + ' - ' + pList[i].ToString);
-end;
-
 procedure TFormMain.ButtonEditClick(Sender: TObject);
 begin
     Edit.FormEdit.ShowModal;
@@ -71,7 +58,6 @@ var
     f: TextFile;
     fileName: string;
     data: string;
-    i: integer;
 begin
     fileName := 'data/data.txt';
     if FileExists(fileName) then
@@ -131,7 +117,12 @@ end;
 
 procedure TFormMain.FormCreate(Sender: TObject);
 begin
+    perList.Create();
+end;
 
+procedure TFormMain.FormDestroy(Sender: TObject);
+begin
+    perList.Free;
 end;
 
 procedure TFormMain.FillListBox(lBox: TListBox; objList: TObjectList);

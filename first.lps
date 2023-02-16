@@ -9,8 +9,8 @@
         <Filename Value="first.lpr"/>
         <IsPartOfProject Value="True"/>
         <EditorIndex Value="3"/>
-        <CursorPos X="27" Y="13"/>
-        <UsageCount Value="46"/>
+        <CursorPos X="24" Y="8"/>
+        <UsageCount Value="47"/>
         <Loaded Value="True"/>
       </Unit>
       <Unit>
@@ -20,9 +20,10 @@
         <HasResources Value="True"/>
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Main"/>
-        <TopLine Value="68"/>
-        <CursorPos X="22" Y="116"/>
-        <UsageCount Value="46"/>
+        <IsVisibleTab Value="True"/>
+        <TopLine Value="55"/>
+        <CursorPos X="27" Y="73"/>
+        <UsageCount Value="47"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -34,9 +35,8 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Add"/>
         <EditorIndex Value="2"/>
-        <TopLine Value="26"/>
         <CursorPos X="135" Y="40"/>
-        <UsageCount Value="46"/>
+        <UsageCount Value="47"/>
         <Loaded Value="True"/>
         <LoadedDesigner Value="True"/>
       </Unit>
@@ -48,17 +48,23 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Edit"/>
         <EditorIndex Value="1"/>
-        <TopLine Value="33"/>
-        <CursorPos X="74" Y="23"/>
-        <UsageCount Value="46"/>
+        <TopLine Value="31"/>
+        <CursorPos X="48" Y="46"/>
+        <UsageCount Value="47"/>
         <Loaded Value="True"/>
+      </Unit>
+      <Unit>
+        <Filename Value="otherfunctions.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="OtherFunctions"/>
+        <EditorIndex Value="-1"/>
+        <CursorPos Y="17"/>
+        <UsageCount Value="24"/>
       </Unit>
       <Unit>
         <Filename Value="person.pas"/>
         <UnitName Value="Person"/>
-        <IsVisibleTab Value="True"/>
-        <EditorIndex Value="6"/>
-        <TopLine Value="8"/>
+        <EditorIndex Value="5"/>
         <CursorPos X="97" Y="20"/>
         <UsageCount Value="22"/>
         <Loaded Value="True"/>
@@ -66,7 +72,7 @@
       <Unit>
         <Filename Value="personList.pas"/>
         <UnitName Value="PersonList"/>
-        <EditorIndex Value="5"/>
+        <EditorIndex Value="4"/>
         <CursorPos X="13" Y="5"/>
         <UsageCount Value="22"/>
         <Loaded Value="True"/>
@@ -79,33 +85,8 @@
         <CursorPos X="22" Y="839"/>
         <UsageCount Value="8"/>
       </Unit>
-      <Unit>
-        <Filename Value="otherfunctions.pas"/>
-        <IsPartOfProject Value="True"/>
-        <UnitName Value="OtherFunctions"/>
-        <EditorIndex Value="4"/>
-        <CursorPos Y="17"/>
-        <UsageCount Value="23"/>
-        <Loaded Value="True"/>
-      </Unit>
     </Units>
     <JumpHistory HistoryIndex="29">
-      <Position>
-        <Filename Value="main.pas"/>
-        <Caret Line="69" Column="29" TopLine="53"/>
-      </Position>
-      <Position>
-        <Filename Value="main.pas"/>
-        <Caret Line="56" Column="41" TopLine="38"/>
-      </Position>
-      <Position>
-        <Filename Value="main.pas"/>
-        <Caret Line="87" Column="57" TopLine="63"/>
-      </Position>
-      <Position>
-        <Filename Value="main.pas"/>
-        <Caret Line="79" Column="18" TopLine="73"/>
-      </Position>
       <Position>
         <Filename Value="main.pas"/>
         <Caret Line="80" Column="40" TopLine="67"/>
@@ -209,6 +190,22 @@
       <Position>
         <Filename Value="person.pas"/>
         <Caret Line="24" Column="89"/>
+      </Position>
+      <Position>
+        <Filename Value="main.pas"/>
+        <Caret Line="116" Column="22" TopLine="4"/>
+      </Position>
+      <Position>
+        <Filename Value="main.pas"/>
+        <Caret Line="115" Column="22" TopLine="81"/>
+      </Position>
+      <Position>
+        <Filename Value="main.pas"/>
+        <Caret Line="110" Column="63" TopLine="38"/>
+      </Position>
+      <Position>
+        <Filename Value="main.pas"/>
+        <Caret Line="77" Column="51" TopLine="55"/>
       </Position>
     </JumpHistory>
     <RunParams>
