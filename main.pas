@@ -64,8 +64,8 @@ begin
     begin
         AssignFile(f, fileName);
         Reset(f);
-        perList.Free;
-        perList := TPersonList.Create();
+        if Assigned(perList) then
+            perList.Clear;
         while (not EOF(f)) do
         begin
             Readln(f, data);
@@ -117,7 +117,7 @@ end;
 
 procedure TFormMain.FormCreate(Sender: TObject);
 begin
-    perList.Create();
+    perList := TPersonList.Create();
 end;
 
 procedure TFormMain.FormDestroy(Sender: TObject);
