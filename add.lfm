@@ -10,11 +10,11 @@ object FormAdd: TFormAdd
   Position = poDefault
   LCLVersion = '2.2.0.4'
   object LabelTitle: TLabel
-    Left = 40
+    Left = 56
     Height = 15
     Top = 16
-    Width = 233
-    Caption = 'Введите фамилию добавляемого студента'
+    Width = 196
+    Caption = 'Введите ФИ добавляемого студента'
   end
   object EnterNewStudent: TEdit
     Left = 40

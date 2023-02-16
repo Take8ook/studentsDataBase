@@ -5,7 +5,7 @@ unit Add;
 interface
 
 uses
-    Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Main;
+    Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Main, Person, PersonList;
 
 type
 
@@ -41,15 +41,19 @@ procedure TFormAdd.ButtonAddClick(Sender: TObject);
 begin
     if Length(FormAdd.EnterNewStudent.Text) > 0 then
     begin
-        FormMain.ListBoxStudents.Items.Add(FormAdd.EnterNewStudent.Text);
-        Showmessage(FormAdd.EnterNewStudent.Text + ' успешно добавлен(-а)!');
-        FormAdd.EnterNewStudent.Text := '';
+        //FormMain.ListBoxStudents.Items.Add(FormAdd.EnterNewStudent.Text);
+        if FormMain.ListBoxStudents.Count = 0 then
+            Main.perList := TPersonList.Create();
+        Main.perList.Add(TPerson.Create(EnterNewStudent.Text));
+        FormMain.FillListBox(FormMain.ListBoxStudents, Main.perList);
+        ShowMessage(EnterNewStudent.Text + ' успешно добавлен(-а)!');
+        EnterNewStudent.Text := '';
         FormAdd.Close;
         FormMain.Show;
     end
     else
     begin      
-        Showmessage('Введите значение!');
+        ShowMessage('Введите значение!');
     end;
 end;
 

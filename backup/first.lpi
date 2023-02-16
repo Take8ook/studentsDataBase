@@ -58,6 +58,11 @@
         <ResourceBaseClass Value="Form"/>
         <UnitName Value="Edit"/>
       </Unit>
+      <Unit>
+        <Filename Value="otherfunctions.pas"/>
+        <IsPartOfProject Value="True"/>
+        <UnitName Value="OtherFunctions"/>
+      </Unit>
     </Units>
   </ProjectOptions>
   <CompilerOptions>

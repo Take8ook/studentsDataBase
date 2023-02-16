@@ -5,13 +5,14 @@ unit Main;
 interface
 
 uses
-    Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls;
+    Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Contnrs, Person, PersonList;
 
 type
 
     { TFormMain }
 
     TFormMain = class(TForm)
+        Button1: TButton;
         ButtonLoad: TButton;
         ButtonSave: TButton;
         ButtonEdit: TButton;
@@ -19,12 +20,14 @@ type
         ButtonAdd: TButton;
         LabelTitle: TLabel;
         ListBoxStudents: TListBox;
+        procedure Button1Click(Sender: TObject);
         procedure ButtonAddClick(Sender: TObject);
         procedure ButtonEditClick(Sender: TObject);
         procedure ButtonLoadClick(Sender: TObject);
         procedure ButtonRemoveClick(Sender: TObject);
         procedure ButtonSaveClick(Sender: TObject);
         procedure FormCreate(Sender: TObject);
+        procedure FillListBox(lBox: TListBox; objList: TObjectList);
     private
 
     public
@@ -33,6 +36,7 @@ type
 
 var
     FormMain: TFormMain;
+    perList: TPersonList;
 
 implementation uses Add, Edit;
 
@@ -45,6 +49,18 @@ begin
     Add.FormAdd.ShowModal;
 end;
 
+procedure TFormMain.Button1Click(Sender: TObject);
+var
+    pList: TPersonList;
+    somePerson: TPerson;
+    i: integer;
+begin
+    somePerson := TPerson.Create('fname');
+    pList := TPersonList.Create();
+    i := pList.Add(somePerson);
+    ShowMessage(i.ToString + ' - ' + pList[i].ToString);
+end;
+
 procedure TFormMain.ButtonEditClick(Sender: TObject);
 begin
     Edit.FormEdit.ShowModal;
@@ -53,64 +69,63 @@ end;
 procedure TFormMain.ButtonLoadClick(Sender: TObject);
 var
     f: TextFile;
-    fileName: String;
-    data: String;
-    i: Integer;
+    fileName: string;
+    data: string;
+    i: integer;
 begin
     fileName := 'data/data.txt';
     if FileExists(fileName) then
     begin
         AssignFile(f, fileName);
         Reset(f);
-
-        i := 0;
-        ListBoxStudents.Items.Clear;
+        perList.Free;
+        perList := TPersonList.Create();
         while (not EOF(f)) do
         begin
             Readln(f, data);
-            ListBoxStudents.Items.Add(data);
+            perList.Add(TPerson.Create(data));
             data := '';
         end;
-
         CloseFile(f);
+
+        FillListBox(ListBoxStudents, perList);
     end
     else
     begin
-        Showmessage('Файла не существует!');
+        ShowMessage('Файла не существует!');
     end;
 end;
 
 procedure TFormMain.ButtonRemoveClick(Sender: TObject);
 var
-    deletedSurname: String;
+    deletedPerson: string;
 begin
     if ListBoxStudents.ItemIndex > -1 then
     begin
-	    deletedSurname := ListBoxStudents.Items[ListBoxStudents.ItemIndex];
-	    ListBoxStudents.Items.Delete(ListBoxStudents.ItemIndex);
-	    Showmessage(deletedSurname + ' успешно удален(-а)!');
+	    deletedPerson := perList[ListBoxStudents.ItemIndex].ToString;
+        perList.Delete(ListBoxStudents.ItemIndex);
+        FillListBox(ListBoxStudents, perList);
+	    ShowMessage(deletedPerson + ' успешно удален(-а)!');
     end;
 end;
 
 procedure TFormMain.ButtonSaveClick(Sender: TObject);
 var
     f: TextFile;
-    fileName: String;
-    i: Integer;
+    fileName: string;
+    i: integer;
 begin
     fileName := 'data/data.txt';
 
     AssignFile(f, fileName);
     Rewrite(f);
 
-    i := 0;
-    while (i < ListBoxStudents.Items.Count) do
+    for i := 0 to perList.Count - 1 do
     begin
-        Writeln(f, ListBoxStudents.Items[i]);
-        i := i + 1;
+        WriteLn(f, perList[i].ToString);
     end;
 
-    Showmessage('Сохранение успешно!');
+    ShowMessage('Сохранение успешно!');
     CloseFile(f);
 end;
 
@@ -119,5 +134,15 @@ begin
 
 end;
 
-end.
+procedure TFormMain.FillListBox(lBox: TListBox; objList: TObjectList);
+var
+    i: integer;
+begin
+    lBox.Items.Clear;
+    for i := 0 to (objList.Count - 1)  do
+        begin
+            lBox.Items.Add(objList[i].ToString);
+        end;
+end;
 
+end.

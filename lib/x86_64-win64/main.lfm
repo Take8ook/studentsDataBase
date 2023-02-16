@@ -1,5 +1,5 @@
 object FormMain: TFormMain
-  Left = 1439
+  Left = 1431
   Height = 333
   Top = 116
   Width = 480
@@ -111,5 +111,14 @@ object FormMain: TFormMain
     OnClick = ButtonSaveClick
     ParentFont = False
     TabOrder = 5
+  end
+  object Button1: TButton
+    Left = 343
+    Height = 25
+    Top = 23
+    Width = 75
+    Caption = 'Button1'
+    OnClick = Button1Click
+    TabOrder = 6
   end
 end

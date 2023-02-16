@@ -10,7 +10,7 @@ uses
     athreads,
     {$ENDIF}
     Interfaces,
-    Forms, main, add, edit
+    Forms, main, add, edit, unit1;
 
 {$R *.res}
 

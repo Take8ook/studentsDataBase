@@ -5,7 +5,7 @@ unit Edit;
 interface
 
 uses
-    Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Main;
+    Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, Main, Person;
 
 type
 
@@ -32,13 +32,20 @@ implementation
 { TFormEdit }
 
 procedure TFormEdit.ButtonEditClick(Sender: TObject);
-var editingStudent: String;
+var
+    editingStudent: String;
+    index: integer;
+    somePerson: TPerson;
 begin
     if (Length(FormEdit.EditStudent.Text) > 0) and (FormMain.ListBoxStudents.ItemIndex > -1) then
     begin
         editingStudent := FormMain.ListBoxStudents.Items[FormMain.ListBoxStudents.ItemIndex];
-        FormMain.ListBoxStudents.Items[FormMain.ListBoxStudents.ItemIndex] := FormEdit.EditStudent.Text;
-        Showmessage(editingStudent + ' успешно изменен(-а) на ' + FormEdit.EditStudent.Text + '!');
+        somePerson := TPerson.Create(FormEdit.EditStudent.Text);
+        index := FormMain.ListBoxStudents.ItemIndex;
+        Main.perList.Delete(index);
+        Main.perList.Insert(index, somePerson);
+        FormMain.FillListBox(FormMain.ListBoxStudents, Main.perList);
+        ShowMessage(editingStudent + ' успешно изменен(-а) на ' + FormEdit.EditStudent.Text + '!');
         FormEdit.EditStudent.Text := '';
         FormEdit.Close;
         FormMain.Show;
@@ -49,10 +56,10 @@ begin
         begin
             FormEdit.Close;
             FormEdit.EditStudent.Text := '';
-            Showmessage('Не выбрано изменяемое поле!');
+            ShowMessage('Не выбрано изменяемое поле!');
         end
         else
-            Showmessage('Введите значение!');
+            ShowMessage('Введите значение!');
     end
 end;
 
